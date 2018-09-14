@@ -78,5 +78,3 @@ const combat = {
 }
 
 module.exports = combat
-
-//export {combat}
