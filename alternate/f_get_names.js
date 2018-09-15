@@ -1,4 +1,4 @@
-let name = function(d) {
+const name = function(d) {
   try{
     return d.map(r=>r.name)
   }

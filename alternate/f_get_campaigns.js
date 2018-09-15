@@ -1,4 +1,4 @@
-let campaign = function(d) {
+const campaign = function(d) {
   try{
     return d.map(r=>r.campaign)
   }

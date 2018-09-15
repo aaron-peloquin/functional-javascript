@@ -1,4 +1,4 @@
-let unique = function(d) {
+const unique = function(d) {
   try{
     return d.filter((v,i,s)=>{return s.indexOf(v)===i})
   }
