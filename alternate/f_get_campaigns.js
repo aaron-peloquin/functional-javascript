@@ -3,7 +3,8 @@ const campaign = function(d) {
     return d.map(r=>r.campaign)
   }
   catch(e){
-    console.error("Error getting campaigns from ",d,e)
+    console.log("Error getting campaigns from ",d)
+    console.error(e)
   }
 }
 
