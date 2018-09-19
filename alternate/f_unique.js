@@ -1,9 +1,9 @@
-const unique = function(d) {
+const unique = function(char_data) {
   try{
-    return d.filter((v,i,s)=>{return s.indexOf(v)===i})
+    return char_data.filter((value,index,self)=>{return self.indexOf(value)===index})
   }
   catch(e){
-    console.log("Error getting unique values from ",d)
+    console.log("Error getting unique values from ",char_data)
     console.error(e)
   }
 }

@@ -1,9 +1,9 @@
-const name = function(d) {
+const name = function(char_data) {
   try{
-    return d.map(r=>r.name)
+    return char_data.map(r=>r.name)
   }
   catch(e){
-    console.log("Error getting names from ",d)
+    console.log("Error getting names from ",char_data)
     console.error(e)
   }
 }
