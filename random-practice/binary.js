@@ -1,7 +1,5 @@
-
-
 let a = 1
-let b = 0
+let b = 1
 
 // OR
 if((a | b)) {
@@ -23,7 +21,16 @@ if(!(a & b)) {
   console.log("at least oen variable is 0")
 }
 
+a = 1
+b = 0
 // XOR
 if((a ^ b)){
   console.log("varaiables do not match eachother")
+}
+
+a = 1
+b = 1
+// Not XOR
+if(!(a ^ b)){
+  console.log("varaiables match eachother")
 }
