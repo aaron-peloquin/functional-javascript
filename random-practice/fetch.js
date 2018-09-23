@@ -11,7 +11,9 @@ json_data.then((json)=>{
 
   /** Loop through all JSON we recieved, and print to the page */
   for(var key in json) {
-    /** Create <dt> and <dd> tags */
+    let value = json[key]
+
+  /** Create <dt> and <dd> tags */
     let title = document.createElement('dt')
     let description = document.createElement('dd')
 
@@ -21,7 +23,24 @@ json_data.then((json)=>{
 
     /** Fill <dt> with key, and <dd> with the value */
     title.innerText = key
-    description.innerText = json[key]
+    /** Special parsing for geo lat/long */
+    if(key==='loc') {
+      /** Set latitude to value so it goes into the first <dd> tag */
+      console.log(value)
+      let values = value.split(',')
+      console.log(values)
+      value = "lat: "+values[0]
+
+      /** Inject a second <dd> for this <dt> */
+      /** Create new <dd> for the longitude */
+      let long_desc = document.createElement('dd')
+      /** Append it to <dl> right after the lat's <dd> */
+      output_dl.appendChild(long_desc);
+      /** Set the longitude's <dd> text */
+      long_desc.innerText = "long "+values[1]
+    }
+    /** Fill <dd> with it's value */
+    description.innerText = value
   }
 })
 
