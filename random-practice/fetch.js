@@ -4,9 +4,13 @@ let response = fetch("https://ipinfo.io/8.8.8.8/geo")
 json_data = response.then((resp)=>resp.json())
 
 json_data.then((json)=>{
-  console.log("The IP is:",json.ip)
-  console.log("It's city is:",json.city)
-  console.log("It's country is:",json.country)
-  console.log("It's postal code is:",json.postal)
+  let output_ul = document.querySelector('#output')
+  console.log(output_ul)
+  for(var key in json) {
+    let li_element = document.createElement('li')
+    console.log(li_element);
+    output_ul.appendChild(li_element);
+    li_element.innerText = key
+  }
 })
 
