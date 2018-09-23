@@ -1,0 +1,1 @@
+console.log(fetch("https://ipinfo.io/8.8.8.8/geo"))
