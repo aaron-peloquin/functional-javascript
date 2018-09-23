@@ -7,10 +7,12 @@ json_data.then((json)=>{
   let output_ul = document.querySelector('#output')
   console.log(output_ul)
   for(var key in json) {
-    let li_element = document.createElement('li')
-    console.log(li_element);
-    output_ul.appendChild(li_element);
-    li_element.innerText = key
+    let title = document.createElement('dt')
+    let description = document.createElement('dd')
+    output_ul.appendChild(title);
+    output_ul.appendChild(description);
+    title.innerText = key
+    description.innerText = json[key]
   }
 })
 
