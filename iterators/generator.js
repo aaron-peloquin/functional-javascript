@@ -10,7 +10,8 @@ function* number_generator() {
   }
 }
 
-for(let i = 1; i<10; i++) {
+/** Get 5 numbers */
+for(let i = 0; i<5; i++) {
   let value = number_generator().next().value
   console.log(value)
 }
