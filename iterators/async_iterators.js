@@ -15,47 +15,60 @@ const getData = {
   getAge: (id)=>dataObject.ages[id]
 }
 
-
 /** Create an async iterator object */
 const asyncObject = {
   [Symbol.iterator]: function() {
-    let i = 0
+    let i = -1;
     return {
       next: async function() {
-        let start = Date.now()
+        i++
         /** Get this user's name, height, and age */
         let user = {}
         user.name = await getData.getName(i)
-        if(!user.name || i>10) {
+        user.height = await getData.getHeight(i)
+        user.age = await getData.getAge(i)
+        
+        if(i>2) {
+          console.log("Should be exiting the loop, why is it not exiting?..")
           return { done: true }
         }
-        console.log(user,(Date.now() - start))
-        user.height = await getData.getHeight(i)
-        console.log(user,(Date.now() - start))
-        user.age = await getData.getAge(i)
-        console.log(user,(Date.now() - start))
         /** Return numObjects as the value, and return done boolean if > max */
-        const ret = { value: user, done: false }
-        i++
-
-        console.log(ret)
-        return ret
+        let my_return = { value: user, done: (typeof user=='undefined') }
+        console.log("about to return..", my_return)
+        return my_return
       }
     }
   }
 }
 
 ;(async function() {
-  for await (const user of asyncObject) {
-    console.log("User: ",user)
+  for await (const new_user of asyncObject) {
+    console.log("usr", new_user)
   }
-  // const iter = asyncObject[Symbol.iterator]();
+})()
 
-  // const user = (await iter.next()).value  
-  // const user1 = (await iter.next()).value
-  // const user2 = (await iter.next()).value
+// async function run() {
+//   // for await (const user of asyncObject) {
+//   //   console.log("User: ", user)
+//   // }
 
-  // console.log(user)
-  // console.log(user1)
-  // console.log(user2)
-})();
+//   const iter = asyncObject[Symbol.iterator]();
+
+//   const user = (await iter.next())  
+//   const user1 = (await iter.next())
+//   const user2 = (await iter.next())
+//   const user3 = (await iter.next())
+//   const user4 = (await iter.next())
+
+//   console.log(user)
+//   console.log(user1)
+//   console.log(user2)
+//   console.log(user3)
+//   console.log(user4)
+
+//   // return [user,user2]
+// }
+
+// let userData = run().then((two_users)=>{
+//   console.log("two users: ",two_users)
+// })
