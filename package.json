@@ -1,0 +1,21 @@
+{
+  "name": "learning",
+  "version": "0.0.1",
+  "quokka": {
+    "babel": {
+      "preset": ["es2017"],
+      "plugins": ["transform-async-generator-functions"]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaron-peloquin/functional-javascript.git"
+  },
+  "author": "Aaron P",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-plugin-transform-async-generator-functions": "^6.24.1",
+    "babel-preset-latest": "^6.24.1"
+  }
+}
