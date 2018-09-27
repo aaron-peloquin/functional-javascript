@@ -46,13 +46,16 @@ const asyncObject = {
 }
 
 ;(async function() {
-  const iter = asyncObject[Symbol.iterator]();
+  for await (const user of asyncObject) {
+    console.log("User: ",user)
+  }
+  // const iter = asyncObject[Symbol.iterator]();
 
-  const user = (await iter.next()).value  
-  const user1 = (await iter.next()).value
-  const user2 = (await iter.next()).value
+  // const user = (await iter.next()).value  
+  // const user1 = (await iter.next()).value
+  // const user2 = (await iter.next()).value
 
-  console.log(user)
-  console.log(user1)
-  console.log(user2)
+  // console.log(user)
+  // console.log(user1)
+  // console.log(user2)
 })();
