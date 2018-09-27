@@ -11,7 +11,7 @@ const dataObject = {
 /** Create object for retrieving data, getHeight has a delay() in it */
 const getData = {
   getName: (id)=>dataObject.names[id],
-  getHeight: (id)=>sleep(500).then(()=>dataObject.heights[id]),
+  getHeight: async (id)=>8,//sleep(1).then(()=>dataObject.heights[id]),
   getAge: (id)=>dataObject.ages[id]
 }
 
@@ -20,20 +20,23 @@ const asyncObject = {
   [Symbol.iterator]: function() {
     let i = -1;
     return {
-      next: async function() {
+      next:  function() {
         i++
+        console.log("inside i", i)
         /** Get this user's name, height, and age */
-        let user = {}
-        user.name = await getData.getName(i)
-        user.height = await getData.getHeight(i)
-        user.age = await getData.getAge(i)
-        
+        let user = {
+          nam: getData.getName(i)
+        }
+        console.log("inside user a", user)
+        user.hei =  getData.getHeight(i)
+        user.age =  getData.getAge(i)
+        console.log("inside user b", user)
         if(i>2) {
           console.log("Should be exiting the loop, why is it not exiting?..")
           return { done: true }
         }
-        /** Return numObjects as the value, and return done boolean if > max */
-        let my_return = { value: user, done: (typeof user=='undefined') }
+
+        let my_return = { value: user, done: false }
         console.log("about to return..", my_return)
         return my_return
       }
@@ -41,12 +44,14 @@ const asyncObject = {
   }
 }
 
+/** Using `for await` loops forever */
 ;(async function() {
   for await (const new_user of asyncObject) {
     console.log("usr", new_user)
   }
 })()
 
+/** Calling `await` */
 // async function run() {
 //   // for await (const user of asyncObject) {
 //   //   console.log("User: ", user)
