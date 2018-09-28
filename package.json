@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "quokka": {
     "babel": {
-      "presets": ["es2017" ],
-      "plugins": [ "transform-async-generator-functions" ]
+      "presets": [
+        "es2017"
+      ],
+      "plugins": []
     }
   },
   "repository": {
@@ -15,7 +17,11 @@
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
     "babel-plugin-transform-async-generator-functions": "^6.24.1",
-    "babel-preset-latest": "^6.24.1"
+    "babel-preset-latest": "^6.24.1",
+    "es6-promise": "^4.2.5",
+    "isomorphic-fetch": "^2.2.1",
+    "node-fetch": "^2.2.0"
   }
 }
