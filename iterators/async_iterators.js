@@ -45,13 +45,13 @@ const asyncObject = {
 }
 
 /** Using `for await` loops forever */
-;(async function() {
-  for await (const new_user of asyncObject) {
-    console.log("usr", new_user)
-  }
-})()
+// ;(async function() {
+//   for await (const new_user of asyncObject) {
+//     console.log("usr", new_user)
+//   }
+// })()
 
-/** Calling `await` */
+/** Calling `await` next() manually */
 // async function run() {
 //   // for await (const user of asyncObject) {
 //   //   console.log("User: ", user)
