@@ -1,7 +1,7 @@
 /** GET geolocation data for one of Google's DNS servers */
 let response = fetch("https://ipinfo.io/8.8.8.8/geo")
 
-/** Convert response into JSON data */
+/** Convert response promise into JSON data */
 json_data = response.then((resp)=>resp.json())
 
 /** Update DOM with JSON data */
